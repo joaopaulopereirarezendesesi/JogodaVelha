@@ -4,49 +4,154 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="I1HM"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-04-18 12:45:15 "/>
+        <attribute name="saved" value="2024-04-25 03:05:42 "/>
         <attribute name="created" value="STFITTtFQ0U0MzZTRU5BSVhYOzIwMjQtMDQtMTg7IjEwOjAxOjAwICI7MjM1NQ=="/>
-        <attribute name="edited" value="STFITTtFQ0U0MzZTRU5BSVhYOzIwMjQtMDQtMTg7IjEyOjQ1OjE1ICI7MTsyNDc5"/>
+        <attribute name="edited" value="STFITTtFQ0U0MzZTRU5BSVhYOzIwMjQtMDQtMjU7IjAzOjA1OjQyICI7NzsyNDc5"/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
+            <while expression="true">
+                <call expression="Jogodavelha"/>
+            </while>
+        </body>
+    </function>
+    <function name="Jogodavelha" type="None" variable="">
+        <parameters/>
+        <body>
             <comment text="Criar tabuleiro e zera-lo e logo ap&#243;s isso criar jogadores.&#13;&#10;&#13;&#10;0: Posi&#231;&#227;o vazia&#13;&#10;1: Jogada na posi&#231;&#227;o do jogador1&#13;&#10;2: Jogada na posi&#231;&#227;o do jogadoe2"/>
-            <declare name="tabuleiro" type="Integer" array="True" size="9"/>
+            <declare name="velha" type="Integer" array="False" size=""/>
+            <declare name="linha" type="Integer" array="False" size=""/>
+            <declare name="coluna" type="Integer" array="False" size=""/>
+            <declare name="HaVencedor" type="Integer" array="False" size=""/>
+            <assign variable="HaVencedor" expression="0"/>
+            <declare name="tebuleiro" type="Integer" array="True" size="9"/>
             <declare name="i" type="Integer" array="False" size=""/>
             <for variable="i" start="0" end="8" direction="inc" step="1">
-                <assign variable="tabuleiro[i]" expression="0"/>
+                <assign variable="tebuleiro[i]" expression="0"/>
             </for>
             <declare name="jogador1" type="String" array="False" size=""/>
             <assign variable="jogador1" expression="&quot;Jogador 1&quot;"/>
             <declare name="jogador2" type="String" array="False" size=""/>
             <assign variable="jogador2" expression="&quot;Jogador 2&quot;"/>
+            <declare name="jogadordaVez" type="Integer" array="False" size=""/>
+            <assign variable="jogadordaVez" expression="1"/>
             <comment text="Escolher quem joga primeiro e ap&#243;s est&#225; escolha, iniciar o jogo."/>
             <declare name="jogada" type="String" array="False" size=""/>
-            <assign variable="jogada" expression="&quot;&quot;"/>
-            <output expression="&quot;Indique a posi&#231;&#227;o da sua pe&#231;a Jogador 1&quot;" newline="True"/>
-            <input variable="jogada"/>
-            <comment text="Verificar se a posi&#231;&#227;o &#233; jogavel."/>
-            <comment text="converter a jogada texto em inteiro."/>
-            <if expression="tebuleiro[linha][coluna]==0">
+            <assign variable="velha" expression="1"/>
+            <do expression="HaVencedor != 2 &amp;&amp; velha&lt;=9">
+                <output expression="&quot;Tabuleiro:&quot;" newline="True"/>
+                <output expression="tebuleiro[0] &amp; &quot; | &quot; &amp; tebuleiro[1] &amp; &quot; | &quot; &amp; tebuleiro[2]" newline="True"/>
+                <output expression="tebuleiro[3] &amp; &quot; | &quot; &amp; tebuleiro[4] &amp; &quot; | &quot; &amp; tebuleiro[5]" newline="True"/>
+                <output expression="tebuleiro[6] &amp; &quot; | &quot; &amp; tebuleiro[7] &amp; &quot; | &quot; &amp; tebuleiro[8]" newline="True"/>
+                <assign variable="jogada" expression="&quot;&quot;"/>
+                <output expression="&quot;Indique a posi&#231;&#227;o da sua pe&#231;a Jogador &quot; &amp; jogadordaVez &amp; &quot;!&quot;" newline="True"/>
+                <input variable="jogada"/>
+                <if expression="Validaposicao(jogada)">
+                    <then>
+                        <assign variable="linha" expression="ToInteger(Char(jogada,0))"/>
+                        <assign variable="coluna" expression="ToInteger(Char(jogada,2))"/>
+                        <output expression="&quot;Linha: &quot; &amp; linha &amp;&quot;; Coluna: &quot; &amp; coluna" newline="True"/>
+                        <comment text="Verificar se a posi&#231;&#227;o &#233; jogavel."/>
+                        <comment text="converter a jogada texto em inteiro."/>
+                        <if expression="tebuleiro[3*linha+coluna]==0">
+                            <then>
+                                <assign variable="tebuleiro[3*linha+coluna]" expression="jogadordaVez"/>
+                                <assign variable="Havencedor" expression="Validatabuleiro(tebuleiro,jogadordaVez)"/>
+                                <if expression="Havencedor == 0">
+                                    <then>
+                                        <if expression="jogadordaVez==1">
+                                            <then>
+                                                <assign variable="jogadordaVez" expression="2"/>
+                                            </then>
+                                            <else>
+                                                <assign variable="jogadordaVez" expression="1"/>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else/>
+                                </if>
+                            </then>
+                            <else>
+                                <comment text="Infromar ao jogador 1 que a posi&#231;&#227;o est&#225; preenchinda e ele precisa colocar um posi&#231;&#227;o v&#225;lida."/>
+                                <output expression="&quot;Voc&#234; colocou a pe&#231;a numa posi&#231;&#227;o j&#225; ocupada&quot;" newline="True"/>
+                            </else>
+                        </if>
+                        <comment text="Registra/anotar a jogada do jogador caso a jogada for v&#225;lida."/>
+                        <comment text="Verificar se h&#225; ganhador e se houver ganhador finalizar o jogo e evidenciar o jogador."/>
+                        <comment text="Verificar se h&#225; jogadas vencedoras nas linhas.&#13;&#10;"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;Jogada invalida&quot;" newline="True"/>
+                    </else>
+                </if>
+            </do>
+            <if expression="HaVencedor==2">
                 <then>
-                    <assign variable="tebuleiro[linha][coluna]" expression="1"/>
+                    <output expression="&quot;Jogador &quot; &amp; jogadordaVez &amp; &quot; &#233; o vencedor&quot;" newline="True"/>
                 </then>
                 <else>
-                    <comment text="Infromar ao jogador 1 que a posi&#231;&#227;o est&#225; preenchinda e ele precisa colocar um posi&#231;&#227;o v&#225;lida."/>
+                    <output expression="&quot;Velha!&quot;" newline="True"/>
                 </else>
             </if>
-            <comment text="Registra/anotar a jogada do jogador caso a jogada for v&#225;lida."/>
-            <comment text="Verificar se h&#225; ganhador e se houver ganhador finalizar o jogo e evidenciar o jogador."/>
-            <comment text="Verificar se h&#225; jogadas vencedoras nas colunas.&#13;&#10;"/>
-            <comment text="Verificar se h&#225; jogadas vencedoras nas linhas.&#13;&#10;"/>
-            <comment text="Verificar se h&#225; jogadas vencedoras nas diagonais.&#13;&#10;"/>
-            <comment text="Se n&#227;o houver ganhador, anotar/registrar a jogada do segundo jogador."/>
-            <assign variable="jogada" expression="&quot;&quot;"/>
-            <output expression="&quot;Indique a posi&#231;&#227;o da sua pe&#231;a Jogador 2&quot;" newline="True"/>
-            <input variable="jogada"/>
-            <comment text="Verificar se h&#225; ganhador e se houver ganhador finalizar o jogo e evidenciar o jogador."/>
-            <comment text="Caso n&#227;o, perguntar a jogada do jogador 1 a ele novamente"/>
+        </body>
+    </function>
+    <function name="ValidaPosicao" type="Boolean" variable="EntradaValida">
+        <parameters>
+            <parameter name="entrada" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="EntradaValida" type="Boolean" array="False" size=""/>
+            <assign variable="EntradaValida" expression="false"/>
+            <output expression="Len(entrada)" newline="True"/>
+            <if expression="Len(entrada)==3">
+                <then>
+                    <if expression="Char(entrada,0)==&quot;0&quot; || Char(entrada,0)==&quot;1&quot; || Char(entrada,0)==&quot;2&quot;">
+                        <then>
+                            <if expression="Char(entrada,2)==&quot;0&quot; || Char(entrada,2)==&quot;1&quot; || Char(entrada,2)==&quot;2&quot;">
+                                <then>
+                                    <assign variable="EntradaValida" expression="true"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </then>
+                        <else/>
+                    </if>
+                </then>
+                <else/>
+            </if>
+        </body>
+    </function>
+    <function name="Validatabuleiro" type="Integer" variable="haounao">
+        <parameters>
+            <parameter name="tebuleiro" type="Integer" array="True"/>
+            <parameter name="jogadordaVez" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="haounao" type="Integer" array="False" size=""/>
+            <assign variable="haounao" expression="0"/>
+            <if expression="(tebuleiro[0]==jogadordaVez &amp;&amp; tebuleiro[1]==jogadordaVez &amp;&amp; tebuleiro[2]==jogadordaVez) || (tebuleiro[3]==jogadordaVez &amp;&amp; tebuleiro[4]==jogadordaVez &amp;&amp; tebuleiro[5]==jogadordaVez) ||(tebuleiro[6]==jogadordaVez &amp;&amp; tebuleiro[7]==jogadordaVez &amp;&amp; tebuleiro[8]==jogadordaVez)">
+                <then>
+                    <assign variable="haounao" expression="2"/>
+                </then>
+                <else>
+                    <comment text="Verificar se h&#225; jogadas vencedoras nas colunas.&#13;&#10;"/>
+                    <if expression="(tebuleiro[0]==jogadordaVez &amp;&amp; tebuleiro[3]==jogadordaVez &amp;&amp; tebuleiro[6]==jogadordaVez) || (tebuleiro[1]==jogadordaVez &amp;&amp; tebuleiro[4]==jogadordaVez &amp;&amp; tebuleiro[7]==jogadordaVez) ||(tebuleiro[2]==jogadordaVez &amp;&amp; tebuleiro[5]==jogadordaVez &amp;&amp; tebuleiro[8]==jogadordaVez)">
+                        <then>
+                            <assign variable="haounao" expression="2"/>
+                        </then>
+                        <else>
+                            <comment text="Verificar se h&#225; jogadas vencedoras nas diagonais.&#13;&#10;"/>
+                            <if expression="(tebuleiro[0]==jogadordaVez &amp;&amp; tebuleiro[4]==jogadordaVez &amp;&amp; tebuleiro[8]==jogadordaVez) || (tebuleiro[2]==jogadordaVez &amp;&amp; tebuleiro[4]==jogadordaVez &amp;&amp; tebuleiro[6]==jogadordaVez)">
+                                <then>
+                                    <assign variable="haounao" expression="2"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
         </body>
     </function>
 </flowgorithm>
