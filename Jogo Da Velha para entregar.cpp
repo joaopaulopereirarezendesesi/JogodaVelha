@@ -138,55 +138,55 @@ void loop() {
               Serial.println(JogadordaVez);
               Serial.println();
               } else {
-//tranforma byte em string e string em inteiro
-      linha = Validajogada(jogada.substring(0, 1)).toInt();
-      coluna = Validajogada(jogada.substring(2, 3)).toInt();
-//imprime a jogada
-      Serial.println();
-      Serial.println(SEPARADOR);
-      Serial.print("Linha: ");
-      Serial.println(linha);
-      Serial.print("Coluna: ");
-      Serial.println(coluna);
-      Serial.println(SEPARADOR);
-      Serial.println();
-//ve se o lugar na matriz está vazio
-      if (tabuleiro[linha][coluna] == 0) {
-//troca o numero do jogador na matriz
-        tabuleiro[linha][coluna] = JogadordaVez;
-//confere as posições ganhadoras na matriz
-        if ((tabuleiro[0][0] == JogadordaVez && tabuleiro[0][1] == JogadordaVez && tabuleiro[0][2] == JogadordaVez) ||
-            (tabuleiro[1][0] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[1][2] == JogadordaVez) ||
-            (tabuleiro[2][0] == JogadordaVez && tabuleiro[2][1] == JogadordaVez && tabuleiro[2][2] == JogadordaVez)) {
-          Havencedor = true;
-          ganhadorouvelha = 1;
-        } else if ((tabuleiro[0][0] == JogadordaVez && tabuleiro[1][0] == JogadordaVez && tabuleiro[2][0] == JogadordaVez) ||
-                   (tabuleiro[0][1] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[2][1] == JogadordaVez) ||
-                   (tabuleiro[0][2] == JogadordaVez && tabuleiro[1][2] == JogadordaVez && tabuleiro[2][2] == JogadordaVez)) {
-          Havencedor = true;
-          ganhadorouvelha = 1;
-        } else if ((tabuleiro[0][0] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[2][2] == JogadordaVez) ||
-                   (tabuleiro[0][2] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[2][0] == JogadordaVez)) {
-          Havencedor = true;
-          ganhadorouvelha = 1;
-        } else if (JogadordaVez == 1) {
-          JogadordaVez = 2;
-        } else {
-          JogadordaVez = 1;
-        }
-//incrementa a velha
-        velha++; 
-      } else {
-        Serial.print("Voce colocou a peca numa posicao ja ocupada Jogador ");
-        Serial.print(JogadordaVez);
-        Serial.println(" ,Tente novamente.");
-        Serial.println();
-      }
+                  //tranforma byte em string e string em inteiro
+                        linha = Validajogada(jogada.substring(0, 1)).toInt();
+                        coluna = Validajogada(jogada.substring(2, 3)).toInt();
+                  //imprime a jogada
+                        Serial.println();
+                        Serial.println(SEPARADOR);
+                        Serial.print("Linha: ");
+                        Serial.println(linha);
+                        Serial.print("Coluna: ");
+                        Serial.println(coluna);
+                        Serial.println(SEPARADOR);
+                        Serial.println();
+                  //ve se o lugar na matriz está vazio
+                        if (tabuleiro[linha][coluna] == 0) {
+                  //troca o numero do jogador na matriz
+                          tabuleiro[linha][coluna] = JogadordaVez;
+                  //confere as posições ganhadoras na matriz
+                          if ((tabuleiro[0][0] == JogadordaVez && tabuleiro[0][1] == JogadordaVez && tabuleiro[0][2] == JogadordaVez) ||
+                              (tabuleiro[1][0] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[1][2] == JogadordaVez) ||
+                              (tabuleiro[2][0] == JogadordaVez && tabuleiro[2][1] == JogadordaVez && tabuleiro[2][2] == JogadordaVez)) {
+                            Havencedor = true;
+                            ganhadorouvelha = 1;
+                          } else if ((tabuleiro[0][0] == JogadordaVez && tabuleiro[1][0] == JogadordaVez && tabuleiro[2][0] == JogadordaVez) ||
+                                    (tabuleiro[0][1] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[2][1] == JogadordaVez) ||
+                                    (tabuleiro[0][2] == JogadordaVez && tabuleiro[1][2] == JogadordaVez && tabuleiro[2][2] == JogadordaVez)) {
+                            Havencedor = true;
+                            ganhadorouvelha = 1;
+                          } else if ((tabuleiro[0][0] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[2][2] == JogadordaVez) ||
+                                    (tabuleiro[0][2] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[2][0] == JogadordaVez)) {
+                            Havencedor = true;
+                            ganhadorouvelha = 1;
+                          } else if (JogadordaVez == 1) {
+                            JogadordaVez = 2;
+                          } else {
+                            JogadordaVez = 1;
+                          }
+                  //incrementa a velha
+                          velha++; 
+                        } else {
+                          Serial.print("Voce colocou a peca numa posicao ja ocupada Jogador ");
+                          Serial.print(JogadordaVez);
+                          Serial.println(" ,Tente novamente.");
+                          Serial.println();
+                        }
 
-      imprimirtabuleiro();
-    }
-          }
-   }
+                        imprimirtabuleiro();
+                      }
+                            }
+                    }
   } while (!Havencedor && velha < 9); 
 // confere se tem velha ou não
   if (!Havencedor) {
