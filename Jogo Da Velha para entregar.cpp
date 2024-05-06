@@ -140,7 +140,9 @@ void loop() {
             (jogada.indexOf("m") != -1) || (jogada.indexOf("n") != -1) || (jogada.indexOf("o") != -1) || (jogada.indexOf("p") != -1) ||
             (jogada.indexOf("q") != -1) || (jogada.indexOf("r") != -1) || (jogada.indexOf("s") != -1) || (jogada.indexOf("t") != -1) ||
             (jogada.indexOf("u") != -1) || (jogada.indexOf("v") != -1) || (jogada.indexOf("w") != -1) || (jogada.indexOf("x") != -1) ||
-            (jogada.indexOf("y") != -1) || (jogada.indexOf("z") != -1)) {
+            (jogada.indexOf("y") != -1) || (jogada.indexOf("z") != -1) || (jogada.indexOf("3") != -1) || (jogada.indexOf("4") != -1) ||
+            (jogada.indexOf("5") != -1) || (jogada.indexOf("6") != -1) || (jogada.indexOf("7") != -1) || (jogada.indexOf("8") != -1) ||
+            (jogada.indexOf("9") != -1)) {
            Serial.println(SEPARADOR2);
            Serial.println();
            Serial.print("Jogada invalida, tente jogar novamente jogador ");
