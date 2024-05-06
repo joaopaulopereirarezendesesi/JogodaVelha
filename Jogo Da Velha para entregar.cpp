@@ -219,6 +219,10 @@ void loop() {
       Serial.println("----------------");
       Serial.println("Jogador 1 comeca");
       Serial.println("----------------");
+      Serial.println();
+      limpartabuleiro();
+      JogadordaVez = 1;
+      imprimirtabuleiro();
       break;
     case 2:
       Serial.println("Velha!");
@@ -228,6 +232,10 @@ void loop() {
       Serial.println("----------------");
       Serial.println("Jogador 1 comeca");
       Serial.println("----------------");
+      Serial.println();
+      limpartabuleiro();
+      JogadordaVez = 1;
+      imprimirtabuleiro();
       break;
   }
 }
