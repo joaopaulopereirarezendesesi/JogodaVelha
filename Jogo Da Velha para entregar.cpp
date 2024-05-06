@@ -194,6 +194,7 @@ void loop() {
             Serial.println(" ,Tente novamente.");
             Serial.println();
             Serial.println(SEPARADOR2);
+            Serial.println();
           }
 
           imprimirtabuleiro();
