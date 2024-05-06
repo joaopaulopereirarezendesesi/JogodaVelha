@@ -1,5 +1,5 @@
 #define SEPARADOR "---------"
-
+#define SEPARADOR2 "------------------------------------------------------------------"
 /*A tabuleiro "tabuleiro" é utlizada 
 para simular o tabuleiro do jogo da velha,
 ou seja, cada posicao da tabuleiro [3][3] representa
@@ -112,19 +112,19 @@ void loop() {
       jogada = Serial.readString();
 
       if (jogada.length() > 3) {
-        Serial.println(SEPARADOR);
+        Serial.println(SEPARADOR2);
         Serial.println();
         Serial.print("Jogada invalida, tente jogar novamente jogador ");
         Serial.println(JogadordaVez);
         Serial.println();
-        Serial.println(SEPARADOR);
+        Serial.println(SEPARADOR2);
       } else if (jogada.length() < 3) {
-        Serial.println(SEPARADOR);
+        Serial.println(SEPARADOR2);
         Serial.println();
         Serial.print("Jogada invalida, tente jogar novamente jogador ");
         Serial.println(JogadordaVez);
         Serial.println();
-        Serial.println(SEPARADOR);
+        Serial.println(SEPARADOR2);
 
       } else {
         if ((jogada.indexOf("-") != -1) || (jogada.indexOf("+") != -1) || (jogada.indexOf(",") != -1) || (jogada.indexOf("!") != -1) || 
@@ -141,12 +141,12 @@ void loop() {
             (jogada.indexOf("q") != -1) || (jogada.indexOf("r") != -1) || (jogada.indexOf("s") != -1) || (jogada.indexOf("t") != -1) ||
             (jogada.indexOf("u") != -1) || (jogada.indexOf("v") != -1) || (jogada.indexOf("w") != -1) || (jogada.indexOf("x") != -1) ||
             (jogada.indexOf("y") != -1) || (jogada.indexOf("z") != -1)) {
-           Serial.println(SEPARADOR);
+           Serial.println(SEPARADOR2);
            Serial.println();
            Serial.print("Jogada invalida, tente jogar novamente jogador ");
            Serial.println(JogadordaVez);
            Serial.println();
-           Serial.println(SEPARADOR);
+           Serial.println(SEPARADOR2);
         } else {
           //tranforma byte em string e string em inteiro
           linha = Validajogada(jogada.substring(0, 1)).toInt();
