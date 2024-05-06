@@ -116,13 +116,28 @@ void loop() {
         Serial.print("Jogada invalida, tente jogar novamente jogador ");
         Serial.println(JogadordaVez);
         Serial.println();
-      } else if (jogada.length() < 3) {
-        Serial.println();
-        Serial.print("Jogada invalida, tente jogar novamente jogador ");
-        Serial.println(JogadordaVez);
-        Serial.println();
-      } else {
-        
+        } else if (jogada.length() < 3) {
+          Serial.println();
+          Serial.print("Jogada invalida, tente jogar novamente jogador ");
+          Serial.println(JogadordaVez);
+          Serial.println();
+          } else {
+              if ((jogada.indexOf("-") || jogada.indexOf("+") || jogada.indexOf(",") || jogada.indexOf("!") ||
+                   jogada.indexOf("@") || jogada.indexOf("#") || jogada.indexOf("$") || jogada.indexOf("%") ||
+                   jogada.indexOf("¨") || jogada.indexOf("&") || jogada.indexOf("*") || jogada.indexOf("(") ||
+                   jogada.indexOf(")") || jogada.indexOf("¹") || jogada.indexOf("²") || jogada.indexOf("³") ||
+                   jogada.indexOf("£") || jogada.indexOf("¢") || jogada.indexOf("¬") || jogada.indexOf("§") ||
+                   jogada.indexOf("=") || jogada.indexOf("[") || jogada.indexOf("]") || jogada.indexOf("{") ||
+                   jogada.indexOf("}") || jogada.indexOf("ª") || jogada.indexOf("º") || jogada.indexOf(";") ||
+                   jogada.indexOf(":") || jogada.indexOf(".") || jogada.indexOf("<") || jogada.indexOf(">") ||
+                   jogada.indexOf("?") || jogada.indexOf("/") || jogada.indexOf("|") || jogada.indexOf("°") ||
+                   jogada.indexOf("´") || jogada.indexOf("`") || jogada.indexOf("^") || jogada.indexOf("~") ||
+                   jogada.indexOf("'")) >= 0){
+              Serial.println();
+              Serial.print("Jogada invalida, tente jogar novamente jogador ");
+              Serial.println(JogadordaVez);
+              Serial.println();
+              } else {
 //tranforma byte em string e string em inteiro
       linha = Validajogada(jogada.substring(0, 1)).toInt();
       coluna = Validajogada(jogada.substring(2, 3)).toInt();
@@ -170,6 +185,7 @@ void loop() {
 
       imprimirtabuleiro();
     }
+          }
    }
   } while (!Havencedor && velha < 9); 
 // confere se tem velha ou não
