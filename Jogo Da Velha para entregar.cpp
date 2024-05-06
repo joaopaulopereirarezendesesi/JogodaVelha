@@ -9,6 +9,10 @@ int tabuleiro[3][3] = {
   { 0, 0, 0 },
   { 0, 0, 0 }
 };
+int contadordevelhas = 0;
+int contadordeganhadas1 = 0;
+int contadordeganhadas2 = 0;
+int contadordepartidas = 1;
 //vai participar do funcionamento do switch
 int ganhadorouvelha;
 //Vai decidir se o jogo deu velha ou não.
@@ -92,6 +96,10 @@ void setup() {
   Serial.println("----------------");
   Serial.println("Jogador 1 comeca");
   Serial.println("----------------");
+  Serial.println();
+  
+  Serial.print("Partida: ");
+  Serial.println(contadordepartidas);
   Serial.println();
 
   imprimirtabuleiro();
@@ -211,10 +219,28 @@ void loop() {
   //solta as mensagens de velha e ganhador
   switch (ganhadorouvelha) {
     case 1:
+      contadordepartidas++;
+      if (JogadordaVez == 1){
+        contadordeganhadas1++;
+      } else {
+        contadordeganhadas2++;
+      }
       Serial.print("Parabens, Jogador ");
       Serial.println(JogadordaVez);
       Serial.println();
       Serial.println("Novo jogo");
+      Serial.println();
+      Serial.print("Velhas: ");
+      Serial.println(contadordevelhas);
+      Serial.println();
+      Serial.print("Partidas ganhas do jogador 1: ");
+      Serial.println(contadordeganhadas1);
+      Serial.println();
+      Serial.print("Partidas ganhas do jogador 2: ");
+      Serial.println(contadordeganhadas2);
+      Serial.println();
+      Serial.print("Partida: ");
+      Serial.println(contadordepartidas);
       Serial.println();
       Serial.println("----------------");
       Serial.println("Jogador 1 comeca");
@@ -225,9 +251,20 @@ void loop() {
       imprimirtabuleiro();
       break;
     case 2:
+      contadordepartidas++;
+      contadordevelhas++;
       Serial.println("Velha!");
       Serial.println();
       Serial.println("Novo jogo");
+      Serial.println();
+      Serial.print("Velhas: ");
+      Serial.println(contadordevelhas);
+      Serial.println();
+      Serial.print("Partidas ganhas do jogador 1: ");
+      Serial.println(contadordeganhadas1);
+      Serial.println();
+      Serial.print("Partidas ganhas do jogador 2: ");
+      Serial.println(contadordeganhadas2);
       Serial.println();
       Serial.println("----------------");
       Serial.println("Jogador 1 comeca");
