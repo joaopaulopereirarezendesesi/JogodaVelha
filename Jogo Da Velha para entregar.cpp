@@ -187,10 +187,13 @@ void loop() {
             //incrementa a velha
             velha++;
           } else {
+            Serial.println(SEPARADOR2);
+            Serial.println();
             Serial.print("Voce colocou a peca numa posicao ja ocupada Jogador ");
             Serial.print(JogadordaVez);
             Serial.println(" ,Tente novamente.");
             Serial.println();
+            Serial.println(SEPARADOR2);
           }
 
           imprimirtabuleiro();
