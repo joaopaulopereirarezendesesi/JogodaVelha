@@ -112,12 +112,10 @@ void loop() {
       jogada = Serial.readString();
 
       if (jogada.length() > 3) {
-        Serial.println();
         Serial.print("Jogada invalida, tente jogar novamente jogador ");
         Serial.println(JogadordaVez);
         Serial.println();
       } else if (jogada.length() < 3) {
-        Serial.println();
         Serial.print("Jogada invalida, tente jogar novamente jogador ");
         Serial.println(JogadordaVez);
         Serial.println();
@@ -128,9 +126,14 @@ void loop() {
             (jogada.indexOf(")") != -1) || (jogada.indexOf("¢") != -1) || (jogada.indexOf("}") != -1) || (jogada.indexOf(";") != -1) || 
             (jogada.indexOf("=") != -1) || (jogada.indexOf("[") != -1) || (jogada.indexOf("]") != -1) || (jogada.indexOf("{") != -1) || 
             (jogada.indexOf(":") != -1) || (jogada.indexOf(".") != -1) || (jogada.indexOf("<") != -1) || (jogada.indexOf(">") != -1) ||
-            (jogada.indexOf("`") != -1) || (jogada.indexOf("^") != -1) || (jogada.indexOf("~") != -1) || (jogada.indexOf("'") != -1)) {
-
-          Serial.println();
+            (jogada.indexOf("`") != -1) || (jogada.indexOf("^") != -1) || (jogada.indexOf("~") != -1) || (jogada.indexOf("'") != -1) ||
+            (jogada.indexOf("a") != -1) || (jogada.indexOf("b") != -1) || (jogada.indexOf("c") != -1) || (jogada.indexOf("d") != -1) ||
+            (jogada.indexOf("e") != -1) || (jogada.indexOf("f") != -1) || (jogada.indexOf("g") != -1) || (jogada.indexOf("h") != -1) ||
+            (jogada.indexOf("i") != -1) || (jogada.indexOf("j") != -1) || (jogada.indexOf("k") != -1) || (jogada.indexOf("l") != -1) ||
+            (jogada.indexOf("m") != -1) || (jogada.indexOf("n") != -1) || (jogada.indexOf("o") != -1) || (jogada.indexOf("p") != -1) ||
+            (jogada.indexOf("q") != -1) || (jogada.indexOf("r") != -1) || (jogada.indexOf("s") != -1) || (jogada.indexOf("t") != -1) ||
+            (jogada.indexOf("u") != -1) || (jogada.indexOf("v") != -1) || (jogada.indexOf("w") != -1) || (jogada.indexOf("x") != -1) ||
+            (jogada.indexOf("y") != -1) || (jogada.indexOf("z") != -1)) {
           Serial.print("Jogada invalida, tente jogar novamente jogador ");
           Serial.println(JogadordaVez);
           Serial.println();
