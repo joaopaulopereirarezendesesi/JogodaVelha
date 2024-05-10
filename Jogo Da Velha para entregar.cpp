@@ -120,6 +120,7 @@ void loop() {
       jogada = Serial.readString();
 
       if (jogada.length() > 3) {
+        
         Serial.println(SEPARADOR2);
         Serial.println();
         Serial.print("Jogada invalida, tente jogar novamente jogador ");
@@ -127,30 +128,38 @@ void loop() {
         Serial.println();
         Serial.println(SEPARADOR2);
       } else if (jogada.length() < 3) {
+        
         Serial.println(SEPARADOR2);
         Serial.println();
         Serial.print("Jogada invalida, tente jogar novamente jogador ");
         Serial.println(JogadordaVez);
         Serial.println();
         Serial.println(SEPARADOR2);
-
-      } else {
-        if ((jogada.indexOf("-") != -1) || (jogada.indexOf("+") != -1) || (jogada.indexOf(",") != -1) || (jogada.indexOf("!") != -1) || 
-            (jogada.indexOf("@") != -1) || (jogada.indexOf("#") != -1) || (jogada.indexOf("$") != -1) || (jogada.indexOf("%") != -1) || 
-            (jogada.indexOf("&") != -1) || (jogada.indexOf("*") != -1) || (jogada.indexOf("(") != -1) || (jogada.indexOf("§") != -1) || 
-            (jogada.indexOf(")") != -1) || (jogada.indexOf("¢") != -1) || (jogada.indexOf("}") != -1) || (jogada.indexOf(";") != -1) || 
-            (jogada.indexOf("=") != -1) || (jogada.indexOf("[") != -1) || (jogada.indexOf("]") != -1) || (jogada.indexOf("{") != -1) || 
-            (jogada.indexOf(":") != -1) || (jogada.indexOf(".") != -1) || (jogada.indexOf("<") != -1) || (jogada.indexOf(">") != -1) ||
-            (jogada.indexOf("`") != -1) || (jogada.indexOf("^") != -1) || (jogada.indexOf("~") != -1) || (jogada.indexOf("'") != -1) ||
-            (jogada.indexOf("a") != -1) || (jogada.indexOf("b") != -1) || (jogada.indexOf("c") != -1) || (jogada.indexOf("d") != -1) ||
-            (jogada.indexOf("e") != -1) || (jogada.indexOf("f") != -1) || (jogada.indexOf("g") != -1) || (jogada.indexOf("h") != -1) ||
-            (jogada.indexOf("i") != -1) || (jogada.indexOf("j") != -1) || (jogada.indexOf("k") != -1) || (jogada.indexOf("l") != -1) ||
-            (jogada.indexOf("m") != -1) || (jogada.indexOf("n") != -1) || (jogada.indexOf("o") != -1) || (jogada.indexOf("p") != -1) ||
-            (jogada.indexOf("q") != -1) || (jogada.indexOf("r") != -1) || (jogada.indexOf("s") != -1) || (jogada.indexOf("t") != -1) ||
-            (jogada.indexOf("u") != -1) || (jogada.indexOf("v") != -1) || (jogada.indexOf("w") != -1) || (jogada.indexOf("x") != -1) ||
-            (jogada.indexOf("y") != -1) || (jogada.indexOf("z") != -1) || (jogada.indexOf("3") != -1) || (jogada.indexOf("4") != -1) ||
-            (jogada.indexOf("5") != -1) || (jogada.indexOf("6") != -1) || (jogada.indexOf("7") != -1) || (jogada.indexOf("8") != -1) ||
-            (jogada.indexOf("9") != -1)) {
+      } else if (jogada.substring(1, 2)!= " ") {
+        
+         Serial.println(SEPARADOR2);
+        Serial.println();
+        Serial.print("Jogada invalida, tente jogar novamente jogador ");
+        Serial.println(JogadordaVez);
+        Serial.println();
+        Serial.println(SEPARADOR2);
+       } else {
+        if((jogada.indexOf("-") != -1) || (jogada.indexOf("+") != -1) || (jogada.indexOf(",") != -1) || (jogada.indexOf("!") != -1) || 
+           (jogada.indexOf("@") != -1) || (jogada.indexOf("#") != -1) || (jogada.indexOf("$") != -1) || (jogada.indexOf("%") != -1) || 
+           (jogada.indexOf("&") != -1) || (jogada.indexOf("*") != -1) || (jogada.indexOf("(") != -1) || (jogada.indexOf("§") != -1) || 
+           (jogada.indexOf(")") != -1) || (jogada.indexOf("¢") != -1) || (jogada.indexOf("}") != -1) || (jogada.indexOf(";") != -1) || 
+           (jogada.indexOf("=") != -1) || (jogada.indexOf("[") != -1) || (jogada.indexOf("]") != -1) || (jogada.indexOf("{") != -1) || 
+           (jogada.indexOf(":") != -1) || (jogada.indexOf(".") != -1) || (jogada.indexOf("<") != -1) || (jogada.indexOf(">") != -1) ||
+           (jogada.indexOf("`") != -1) || (jogada.indexOf("^") != -1) || (jogada.indexOf("~") != -1) || (jogada.indexOf("'") != -1) ||
+           (jogada.indexOf("a") != -1) || (jogada.indexOf("b") != -1) || (jogada.indexOf("c") != -1) || (jogada.indexOf("d") != -1) ||
+           (jogada.indexOf("e") != -1) || (jogada.indexOf("f") != -1) || (jogada.indexOf("g") != -1) || (jogada.indexOf("h") != -1) ||
+           (jogada.indexOf("i") != -1) || (jogada.indexOf("j") != -1) || (jogada.indexOf("k") != -1) || (jogada.indexOf("l") != -1) ||
+           (jogada.indexOf("m") != -1) || (jogada.indexOf("n") != -1) || (jogada.indexOf("o") != -1) || (jogada.indexOf("p") != -1) ||
+           (jogada.indexOf("q") != -1) || (jogada.indexOf("r") != -1) || (jogada.indexOf("s") != -1) || (jogada.indexOf("t") != -1) ||
+           (jogada.indexOf("u") != -1) || (jogada.indexOf("v") != -1) || (jogada.indexOf("w") != -1) || (jogada.indexOf("x") != -1) ||
+           (jogada.indexOf("y") != -1) || (jogada.indexOf("z") != -1) || (jogada.indexOf("3") != -1) || (jogada.indexOf("4") != -1) ||
+           (jogada.indexOf("5") != -1) || (jogada.indexOf("6") != -1) || (jogada.indexOf("7") != -1) || (jogada.indexOf("8") != -1) ||
+           (jogada.indexOf("9") != -1)) {
            Serial.println(SEPARADOR2);
            Serial.println();
            Serial.print("Jogada invalida, tente jogar novamente jogador ");
@@ -175,20 +184,17 @@ void loop() {
             //troca o numero do jogador na matriz
             tabuleiro[linha][coluna] = JogadordaVez;
             //confere as posições ganhadoras na matriz
-            if ((tabuleiro[0][0] == JogadordaVez && tabuleiro[0][1] == JogadordaVez && tabuleiro[0][2] == JogadordaVez) || 
-                (tabuleiro[1][0] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[1][2] == JogadordaVez) || 
-                (tabuleiro[2][0] == JogadordaVez && tabuleiro[2][1] == JogadordaVez && tabuleiro[2][2] == JogadordaVez)) {
+            if (((tabuleiro[0][0] == JogadordaVez && tabuleiro[0][1] == JogadordaVez && tabuleiro[0][2] == JogadordaVez) || 
+                 (tabuleiro[1][0] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[1][2] == JogadordaVez) || 
+                 (tabuleiro[2][0] == JogadordaVez && tabuleiro[2][1] == JogadordaVez && tabuleiro[2][2] == JogadordaVez)) || 
+                 ((tabuleiro[0][0] == JogadordaVez && tabuleiro[1][0] == JogadordaVez && tabuleiro[2][0] == JogadordaVez) || 
+                 (tabuleiro[0][1] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[2][1] == JogadordaVez) || 
+                 (tabuleiro[0][2] == JogadordaVez && tabuleiro[1][2] == JogadordaVez && tabuleiro[2][2] == JogadordaVez)) ||
+                 ((tabuleiro[0][0] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[2][2] == JogadordaVez) ||
+                 (tabuleiro[0][2] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[2][0] == JogadordaVez))) {
               Havencedor = true;
               ganhadorouvelha = 1;
-            } else if ((tabuleiro[0][0] == JogadordaVez && tabuleiro[1][0] == JogadordaVez && tabuleiro[2][0] == JogadordaVez) || 
-                       (tabuleiro[0][1] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[2][1] == JogadordaVez) || 
-                       (tabuleiro[0][2] == JogadordaVez && tabuleiro[1][2] == JogadordaVez && tabuleiro[2][2] == JogadordaVez)) {
-              Havencedor = true;
-              ganhadorouvelha = 1;
-            } else if ((tabuleiro[0][0] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[2][2] == JogadordaVez) ||
-                       (tabuleiro[0][2] == JogadordaVez && tabuleiro[1][1] == JogadordaVez && tabuleiro[2][0] == JogadordaVez)) {
-              Havencedor = true;
-              ganhadorouvelha = 1;
+              
             } else if (JogadordaVez == 1) {
               JogadordaVez = 2;
             } else {
@@ -208,9 +214,9 @@ void loop() {
           }
 
           imprimirtabuleiro();
-        }
-      }
+     }
     }
+   }
   } while (!Havencedor && velha < 9);
   // confere se tem velha ou não
   if (!Havencedor) {
