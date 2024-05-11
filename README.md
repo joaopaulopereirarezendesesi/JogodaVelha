@@ -18,7 +18,6 @@ de programação tetando traduzi-lo para a linguegem escolhida.
 Existem muitas restrições que envolvem a ferramenta utilizada, o Flowgoritch, mudando muito a modo que você vai traduzir de linguagem
 para linguagem, algumas restrições são:
 
-* O Flowgoritch não aceita ma''trizes, somente vetores, dificultando muito a adapitação tanto no floxograma, tais como nas outras linguagens.
-=======
 * O Flowgoritch não aceita matrizes, somente vetores, dificultando muito a adapitação tanto no floxograma, tais como nas outras linguagens.
+
   
