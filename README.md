@@ -1,7 +1,8 @@
-# JogodaVelha# JogodaVelha
+# JogodaVelha
 >Jogo da velha no Flowgoritch, mostra o desenvolvimento e a logica da programação em c de uma simulção de Jogo da velha em fluxograma.
+>
 >Por: _*João Paulo Pereira Rezende*_
->oiiii
+
 # JogodaVelha
 >Jogo da velha no Flowgoritch, mostra o desenvolvimento e a logica da programação em c de uma simulção de Jogo da velha em fluxograma.
 
