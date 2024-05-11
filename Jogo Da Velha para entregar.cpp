@@ -1,3 +1,5 @@
+oi
+
 #define SEPARADOR "---------"
 #define SEPARADOR2 "------------------------------------------------------------------"
 /*A tabuleiro "tabuleiro" é utlizada 
