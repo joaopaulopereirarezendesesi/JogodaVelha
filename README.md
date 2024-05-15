@@ -3,10 +3,6 @@
 >
 >Por: _*João Paulo Pereira Rezende*_
 
-# JogodaVelha
->Jogo da velha no Flowgoritch, mostra o desenvolvimento e a logica da programação em c de uma simulção de Jogo da velha em fluxograma.
-
-
 ## Objetivo:
 Simular no Flowgoritch partidas de jogo da velha.
 
